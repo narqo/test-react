@@ -1,4 +1,4 @@
-import {createClass, createElement} from "react"
+import {createClass, createElement} from 'react'
 
 export default createClass({
     displayName : 'Button',
@@ -16,7 +16,7 @@ export default createClass({
             lastProps = this.props;
 
         setTimeout(function() {
-            console.log('timeout', _this.props, lastProps === _this.props);
+            //console.log('timeout', _this.props, lastProps === _this.props);
 
             _this.setState(function(prevState, curProps) {
                 if(lastProps !== curProps) {
@@ -25,18 +25,18 @@ export default createClass({
 
                 return { inited : true };
             }, function() {
-                console.log('after init');
+                console.log('button after init');
             });
         }, 300);
     },
 
     componentWillReceiveProps(nextProps) {
         if(!this.state.inited) {
-            console.log('next:', 'skip');
+            //console.log('button next:', 'skip');
             return;
         }
 
-        console.log('next:', nextProps);
+        //console.log('button next:', nextProps);
     },
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -45,9 +45,10 @@ export default createClass({
     },
 
     render() {
-        console.log('render!');
+        //console.log('button render!');
         var {text, disabled} = this.state;
-        return createElement('button', { className : 'button', type : 'submit', disabled },
+        return createElement('button',
+                { className : 'button', type : 'submit', onClick : this.props.onClick, disabled },
             createElement('span', { className : 'button__text' }, text));
     }
 });

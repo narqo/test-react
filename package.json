@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev-server": "webpack-dev-server --devtool eval --progress --colors --content-base build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vladimir Varankin <nek.narqo@gmail.com> (http://github.com/narqo)",
@@ -14,7 +15,6 @@
     "file-loader": "^0.8.4",
     "node-libs-browser": "^0.5.2",
     "react": "^0.13.3",
-    "react-hot-loader": "^1.2.8",
     "webpack": "^1.9.12",
     "webpack-dev-server": "^1.10.1"
   }

@@ -1,12 +1,12 @@
-import {createClass, createElement} from "react";
-import Button from "./button";
+import {createClass, createElement} from 'react';
+import Button from './button';
 
 export default createClass({
     displayName : 'Dropdown',
 
     getInitialState() {
         return {
-            text : 'Click Me!'
+            text : 'Click Me!!'
         };
     },
 

@@ -1,18 +1,27 @@
+var nodeModulesDir = __dirname + '/node_modules';
+
 module.exports = {
     context : __dirname + '/app',
     entry : {
-        javascript : './index.js',
-        html : './index.html'
+        javascript : './main.js'
     },
+    target : 'web',
     output : {
-        filename : 'index.js',
-        path : __dirname + '/dist'
+        path : __dirname + '/build',
+        filename : 'bundle.js'
+    },
+    resolve : {
+        alias : {
+            'react' : nodeModulesDir + '/react/dist/react.js'
+        }
     },
     module : {
         loaders : [
             {
                 test : /\.js$/,
-                exclude : '/node_modules/',
+                include : [
+                    __dirname + '/app'
+                ],
                 loaders : ['babel-loader']
             },
             {
